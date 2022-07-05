@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--命名空间是接口的完整路径-->
+<mapper namespace="com.blb.aigo.mapper.ProductMapper">
+
+    <!--配置插入语句 id是方法名 parameterType是参数类型 #{stuName}是读取属性值-->
+
+    <!--配置查询 resultType返回的类型-->
+    <select id="selectShop" resultType="com.blb.aigo.entity.Product" parameterType="java.lang.String">
+        select a.product_image,a.product_name,a.price from s_product a join s_shop_cart_product b on a.id=b.product_id join s_shop_cart c on user_id=#{userId}
+    </select>
+    <select id="showAddress" resultType="com.blb.aigo.entity.AddressShow">
+       select * from s_receiving_address
+    </select>
+
+</mapper>

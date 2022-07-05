@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--命名空间是接口的完整路径-->
+<mapper namespace="com.blb.aigo.mapper.CartToOrderMapper">
+
+    <!--配置插入语句 id是方法名 parameterType是参数类型 #{stuName}是读取属性值-->
+
+    <!--配置查询 resultType返回的类型-->
+    <insert id="insertOrder" parameterType="com.blb.aigo.entity.OrderProduct">
+        insert into s_order_product(id,order_id,product_id,product_num)
+        values (#{id},#{orderId},#{productId},#{productNum})
+    </insert>
+    <select id="selectcart" resultType="com.blb.aigo.entity.ShopCartProduct">
+       select * from s_shop_cart_product
+    </select>
+
+    <delete id="deleteCart" parameterType="java.lang.String">
+        delete from s_shop_cart_product where id=#{id}
+    </delete>
+</mapper>

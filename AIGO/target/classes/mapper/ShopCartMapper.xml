@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--命名空间是接口的完整路径-->
+<mapper namespace="com.blb.aigo.mapper.ShopCartMapper">
+
+    <!--配置插入语句 id是方法名 parameterType是参数类型 #{stuName}是读取属性值-->
+
+    <!--配置查询 resultType返回的类型-->
+
+    <select id="selectProductNum" resultType="com.blb.aigo.entity.ShopCartProduct" parameterType="java.lang.String">
+        select * from s_shop_cart_product where product_id=#{productId}
+    </select>
+
+    <select id="selectCartId" resultType="java.lang.String" >
+        SELECT cart_id from s_shop_cart where user_id=#{userId}
+    </select>
+    <insert id="insertCart" parameterType="com.blb.aigo.entity.ShopCartProduct"  >
+        insert into s_shop_cart_product VALUES(#{id},#{shopCartId},#{productId},#{productNum});
+    </insert>
+
+    <delete id="deleteProductNum" parameterType="java.lang.String">
+        delete from s_shop_cart_product where product_id=#{productId}
+    </delete>
+
+</mapper>

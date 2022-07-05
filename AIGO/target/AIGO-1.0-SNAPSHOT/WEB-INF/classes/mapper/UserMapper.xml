@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--命名空间是接口的完整路径-->
+<mapper namespace="com.blb.aigo.mapper.UserMapper">
+
+    <!--配置插入语句 id是方法名 parameterType是参数类型 #{stuName}是读取属性值-->
+
+    <!--配置查询 resultType返回的类型-->
+    <select id="selectUsername" resultType="java.lang.String" parameterType="java.lang.String">
+        select username from s_user where username=#{username}
+    </select>
+    <select id="selectPassword" resultType="java.lang.String" parameterType="java.lang.String">
+        select password from s_user where username=#{username}
+    </select>
+    <select id="selectUserId" resultType="java.lang.String" parameterType="java.lang.String">
+        select id from s_user where username=#{username}
+    </select>
+
+</mapper>
